@@ -1,9 +1,51 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+  "residents": [
+    { "id": "R1", "name": "John Doe", "address": "123 Main St" },
+    { "id": "R2", "name": "Jane Smith", "address": "456 Oak Ave" },
+    { "id": "R3", "name": "Acme Corp", "address": "789 Pine Rd" }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+  "locations": [
+    { "id": "L1", "name": "Downtown", "zip_code": "10001" },
+    { "id": "L2", "name": "Suburbia", "zip_code": "10002" },
+    { "id": "L3", "name": "Industrial Zone", "zip_code": "10003" }
   ],
-  "profile": { "name": "typicode" }
+  "waste_types": [
+    { "id": "W1", "type": "Biodegradable" },
+    { "id": "W2", "type": "Recyclable" },
+    { "id": "W3", "type": "Hazardous" }
+  ],
+  "garbage_bins": [
+    { "id": "B1", "location_id": "L1", "waste_type": "Biodegradable", "capacity": "240L" },
+    { "id": "B2", "location_id": "L1", "waste_type": "Recyclable", "capacity": "240L" },
+    { "id": "B3", "location_id": "L2", "waste_type": "Biodegradable", "capacity": "120L" },
+    { "id": "B4", "location_id": "L3", "waste_type": "Hazardous", "capacity": "120L" }
+  ],
+  "collection_requests": [
+    { "id": 1, "resident_id": "R1", "waste_type": "Biodegradable", "location_id": "L1", "schedule_id": 1, "request_date": "2025-07-01" },
+    { "id": 2, "resident_id": "R2", "waste_type": "Recyclable", "location_id": "L2", "schedule_id": null, "request_date": "2025-07-02" },
+    { "id": 3, "resident_id": "R3", "waste_type": "Hazardous", "location_id": "L3", "schedule_id": 2, "request_date": "2025-07-02" }
+  ],
+  "collection_schedules": [
+    { "id": 1, "collection_date": "2025-07-03", "location_id": "L1", "truck_id": "T1", "driver_id": "D1" },
+    { "id": 2, "collection_date": "2025-07-04", "location_id": "L3", "truck_id": "T2", "driver_id": "D2" },
+    { "id": 3, "collection_date": "2025-07-05", "location_id": "L2", "truck_id": "T1", "driver_id": "D1" }
+  ],
+  "garbage_trucks": [
+    { "id": "T1", "license_plate": "XYZ-123", "capacity": "10T" },
+    { "id": "T2", "license_plate": "ABC-456", "capacity": "8T" }
+  ],
+  "drivers": [
+    { "id": "D1", "name": "Mike Brown", "license_number": "LN12345" },
+    { "id": "D2", "name": "Sarah Green", "license_number": "LN67890" }
+  ],
+  "employees": [
+    { "id": "E1", "name": "Mike Brown", "role": "Driver", "driver_id": "D1" },
+    { "id": "E2", "name": "Sarah Green", "role": "Driver", "driver_id": "D2" },
+    { "id": "E3", "name": "Tom Wilson", "role": "Supervisor", "driver_id": null },
+    { "id": "E4", "name": "Lisa Davis", "role": "Cleaner", "driver_id": null }
+  ],
+  "collection_records": [
+    { "id": 1, "schedule_id": 1, "bin_id": "B1", "collection_date": "2025-07-03", "employee_id": "E3" },
+    { "id": 2, "schedule_id": 2, "bin_id": "B4", "collection_date": "2025-07-04", "employee_id": "E3" }
+  ]
 }
